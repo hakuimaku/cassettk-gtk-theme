@@ -1,0 +1,61 @@
+/* Cassettk palette shared by GTK3 and GTK4 (Classic gray scheme). */
+@define-color cass_window_bg #4a4a4a;
+@define-color cass_panel_bg #404040;
+@define-color cass_inset_bg #262626;
+@define-color cass_title_bg #5e5e5e;
+@define-color cass_title_fg #f2f2f2;
+
+@define-color cass_text #e6e6e6;
+@define-color cass_text_muted #a8a8a8;
+@define-color cass_insensitive #7a7a7a;
+
+@define-color cass_border_light #7c7c7c;
+@define-color cass_border_dark #161616;
+@define-color cass_border_frame #0c0c0c;
+
+@define-color cass_button_bg #555555;
+@define-color cass_button_active_bg #3a3a3a;
+
+@define-color cass_select_bg #c8c8c8;
+@define-color cass_select_fg #101010;
+@define-color cass_select_backdrop #707070;
+
+@define-color cass_tooltip_bg #1c1c1c;
+@define-color cass_tooltip_fg #dcdcdc;
+
+@define-color cass_urgent_bg #8a2b2b;
+@define-color cass_urgent_fg #ffffff;
+
+@define-color cass_indicator #e6e6e6;
+@define-color cass_caret #e6e6e6;
+
+/* Exo / icon view translucent state colors */
+@define-color cass_view_hover alpha(#ffffff, 0.06);
+@define-color cass_view_selected alpha(#c8c8c8, 0.25);
+@define-color cass_view_backdrop alpha(#ffffff, 0.10);
+
+/* Status colors */
+@define-color error_color #e09b9b;
+@define-color warning_color #d6bd8b;
+@define-color success_color #a7c4a0;
+
+/* Conventional names used by GTK applications and cell renderers. */
+@define-color theme_bg_color @cass_window_bg;
+@define-color theme_fg_color @cass_text;
+@define-color theme_base_color @cass_inset_bg;
+@define-color theme_text_color @cass_text;
+@define-color theme_selected_bg_color @cass_select_bg;
+@define-color theme_selected_fg_color @cass_select_fg;
+@define-color theme_unfocused_bg_color @cass_window_bg;
+@define-color theme_unfocused_fg_color @cass_text_muted;
+@define-color theme_unfocused_base_color @cass_inset_bg;
+@define-color theme_unfocused_text_color @cass_text;
+@define-color theme_unfocused_selected_bg_color @cass_select_backdrop;
+@define-color theme_unfocused_selected_fg_color @cass_text;
+@define-color insensitive_bg_color @cass_panel_bg;
+@define-color insensitive_fg_color @cass_insensitive;
+@define-color insensitive_base_color @cass_inset_bg;
+@define-color borders @cass_border_dark;
+@define-color unfocused_borders @cass_border_dark;
+@define-color link_color @cass_text;
+@define-color visited_link_color @cass_text_muted;

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Cassettk
+Comment=A Win9x-inspired beveled gray GTK theme
+
+[X-GNOME-Metatheme]
+GtkTheme=Cassettk

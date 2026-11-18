@@ -1,0 +1,458 @@
+/* Cassettk shared widget geometry: 0px radius, 2px 4-edge bevels, no transitions/shadows. */
+* {
+  border-radius: 0px;
+  box-shadow: none;
+  text-shadow: none;
+  -gtk-icon-shadow: none;
+  outline-style: none;
+  transition: none;
+}
+
+window, .background, dialog {
+  background-color: @cass_window_bg;
+  color: @cass_text;
+}
+
+button, entry, spinbutton, notebook > header > tabs > tab {
+  min-height: 24px;
+  border-radius: 0px;
+  padding: 4px 8px;
+  color: @cass_text;
+  background-image: none;
+}
+
+/* Raised bevel for buttons */
+button {
+  min-width: 20px;
+  background-color: @cass_button_bg;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
+}
+
+button.flat, button.link {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+button:hover {
+  background-color: @cass_button_active_bg;
+}
+
+button.flat:hover {
+  background-color: @cass_button_bg;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
+}
+
+button:active, button:checked, button.flat:active, button.flat:checked {
+  background-color: @cass_button_active_bg;
+  border-top-color: @cass_border_dark;
+  border-left-color: @cass_border_dark;
+  border-right-color: @cass_border_light;
+  border-bottom-color: @cass_border_light;
+}
+
+button:focus {
+  outline-style: dotted;
+  outline-width: 1px;
+  outline-offset: -4px;
+  outline-color: @cass_text;
+}
+
+button:disabled {
+  background-color: @cass_panel_bg;
+  color: @cass_insensitive;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
+}
+
+button.flat:disabled {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+button.link {
+  color: @cass_text;
+  text-decoration-line: underline;
+}
+
+button.link:visited {
+  color: @cass_text_muted;
+}
+
+button.destructive-action {
+  background-color: @cass_urgent_bg;
+  color: @cass_urgent_fg;
+}
+
+/* Inset bevel for text inputs */
+entry, spinbutton {
+  background-color: @cass_inset_bg;
+  color: @cass_text;
+  caret-color: @cass_caret;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_dark;
+  border-left-color: @cass_border_dark;
+  border-right-color: @cass_border_light;
+  border-bottom-color: @cass_border_light;
+}
+
+entry:focus, entry:focus-within, spinbutton:focus-within {
+  background-color: @cass_inset_bg;
+}
+
+entry image {
+  color: @cass_text_muted;
+}
+
+spinbutton button {
+  min-width: 16px;
+  padding: 2px 4px;
+}
+
+selection, entry selection {
+  background-color: @cass_select_bg;
+  color: @cass_select_fg;
+}
+
+/* Checkboxes and radios */
+check, radio {
+  min-width: 16px;
+  min-height: 16px;
+  margin: 2px 4px;
+  border-radius: 0px;
+  color: @cass_indicator;
+  background-color: @cass_inset_bg;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_dark;
+  border-left-color: @cass_border_dark;
+  border-right-color: @cass_border_light;
+  border-bottom-color: @cass_border_light;
+  -gtk-icon-source: none;
+}
+
+check:checked {
+  -gtk-icon-source: -gtk-recolor(url("../assets/check.svg"));
+}
+
+check:indeterminate, radio:indeterminate {
+  -gtk-icon-source: -gtk-recolor(url("../assets/minus.svg"));
+}
+
+radio:checked {
+  -gtk-icon-source: -gtk-recolor(url("../assets/dot.svg"));
+}
+
+checkbutton:focus, radiobutton:focus {
+  outline-style: dotted;
+  outline-width: 1px;
+  outline-color: @cass_text;
+}
+
+/* Switch */
+switch {
+  min-width: 40px;
+  min-height: 22px;
+  border-radius: 0px;
+  background-color: @cass_inset_bg;
+  color: @cass_text_muted;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_dark;
+  border-left-color: @cass_border_dark;
+  border-right-color: @cass_border_light;
+  border-bottom-color: @cass_border_light;
+}
+
+switch:checked {
+  background-color: @cass_panel_bg;
+}
+
+switch slider {
+  min-width: 18px;
+  min-height: 18px;
+  margin: 0px;
+  border-radius: 0px;
+  background-color: @cass_button_bg;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
+}
+
+switch:checked slider {
+  background-color: @cass_select_bg;
+}
+
+/* Headerbar CSD: solid title_bg + square raised buttons */
+headerbar {
+  padding: 4px 6px;
+  min-height: 32px;
+  background-color: @cass_title_bg;
+  background-image: none;
+  color: @cass_title_fg;
+  border-bottom: 2px solid @cass_border_dark;
+}
+
+headerbar button,
+headerbar button.titlebutton {
+  min-width: 20px;
+  min-height: 20px;
+  padding: 2px 6px;
+  background-color: @cass_button_bg;
+  color: @cass_text;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
+}
+
+headerbar button:active,
+headerbar button:checked,
+headerbar button.titlebutton:active {
+  background-color: @cass_button_active_bg;
+  border-top-color: @cass_border_dark;
+  border-left-color: @cass_border_dark;
+  border-right-color: @cass_border_light;
+  border-bottom-color: @cass_border_light;
+}
+
+.title {
+  font-weight: bold;
+  color: @cass_title_fg;
+}
+
+.subtitle, .dim-label {
+  color: @cass_text_muted;
+}
+
+/* Lists & FileChooser */
+list, listbox {
+  background-color: @cass_inset_bg;
+  color: @cass_text;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_dark;
+  border-left-color: @cass_border_dark;
+  border-right-color: @cass_border_light;
+  border-bottom-color: @cass_border_light;
+}
+
+row {
+  padding: 4px 8px;
+  border-radius: 0px;
+}
+
+row:hover {
+  background-color: @cass_panel_bg;
+}
+
+row:selected {
+  background-color: @cass_select_bg;
+  color: @cass_select_fg;
+}
+
+row:selected:backdrop {
+  background-color: @cass_select_backdrop;
+  color: @cass_text;
+}
+
+filechooser .sidebar-icon:dir(ltr) { margin-right: 10px; }
+filechooser .sidebar-icon:dir(rtl) { margin-left: 10px; }
+filechooser, filechooser .view { -gtk-icon-style: regular; }
+
+/* Notebook tabs (Classic Rofi mode-switcher style) */
+notebook {
+  background-color: @cass_window_bg;
+}
+
+notebook > header {
+  padding: 4px;
+  background-color: @cass_panel_bg;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
+}
+
+notebook > header > tabs > tab {
+  margin: 0px 2px 0px 0px;
+  padding: 4px 12px;
+  background-color: @cass_button_bg;
+  color: @cass_text;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
+}
+
+notebook > header > tabs > tab:hover {
+  background-color: @cass_button_active_bg;
+}
+
+notebook > header > tabs > tab:checked {
+  background-color: @cass_select_bg;
+  color: @cass_select_fg;
+  font-weight: bold;
+  border-top-color: @cass_border_dark;
+  border-left-color: @cass_border_dark;
+  border-right-color: @cass_border_light;
+  border-bottom-color: @cass_border_light;
+}
+
+notebook tab button {
+  min-width: 16px;
+  min-height: 16px;
+  padding: 2px;
+}
+
+/* Scrollbar: inset trough + raised thumb, no arrow buttons */
+scrollbar {
+  background-color: @cass_inset_bg;
+  border: none;
+}
+
+scrollbar trough {
+  background-color: @cass_inset_bg;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_dark;
+  border-left-color: @cass_border_dark;
+  border-right-color: @cass_border_light;
+  border-bottom-color: @cass_border_light;
+}
+
+scrollbar slider {
+  min-width: 10px;
+  min-height: 10px;
+  margin: 0px;
+  border-radius: 0px;
+  background-color: @cass_button_bg;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
+}
+
+scrollbar.vertical slider { min-height: 28px; }
+scrollbar.horizontal slider { min-width: 28px; }
+scrollbar slider:active { background-color: @cass_title_bg; }
+scrollbar button { min-width: 0px; min-height: 0px; padding: 0px; border: none; background: none; }
+
+/* Progressbar, Scale, Levelbar */
+progressbar trough, scale trough, levelbar trough {
+  min-height: 8px;
+  min-width: 8px;
+  border-radius: 0px;
+  background-color: @cass_inset_bg;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_dark;
+  border-left-color: @cass_border_dark;
+  border-right-color: @cass_border_light;
+  border-bottom-color: @cass_border_light;
+}
+
+progressbar progress, scale highlight, levelbar block.filled {
+  min-height: 6px;
+  min-width: 6px;
+  border-radius: 0px;
+  background-color: @cass_select_bg;
+}
+
+scale { padding: 8px; }
+
+scale slider {
+  min-width: 14px;
+  min-height: 18px;
+  border-radius: 0px;
+  background-color: @cass_button_bg;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
+}
+
+scale, scale marks, progressbar text {
+  color: @cass_text;
+}
+
+separator {
+  min-width: 2px;
+  min-height: 2px;
+  background-color: @cass_border_dark;
+}
+
+paned > separator {
+  min-width: 6px;
+  min-height: 6px;
+  background-color: @cass_window_bg;
+  border-width: 1px;
+  border-style: solid;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
+}
+
+rubberband {
+  background-color: alpha(@cass_select_bg, 0.22);
+  border: 1px solid @cass_select_bg;
+  border-radius: 0px;
+}
+
+tooltip {
+  padding: 6px 8px;
+  border-radius: 0px;
+  background-color: @cass_tooltip_bg;
+  color: @cass_tooltip_fg;
+  border: 1px solid @cass_border_frame;
+}
+
+textview, textview text {
+  background-color: @cass_inset_bg;
+  color: @cass_text;
+}
+
+frame > border,
+scrolledwindow.frame {
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_dark;
+  border-left-color: @cass_border_dark;
+  border-right-color: @cass_border_light;
+  border-bottom-color: @cass_border_light;
+}
+
+messagedialog .dialog-vbox { min-width: 320px; padding: 12px; }
+messagedialog .dialog-action-area { padding: 8px; }
+.error { color: @error_color; }
+.warning { color: @warning_color; }
+.success { color: @success_color; }
+:disabled { color: @cass_insensitive; }
+check:disabled, radio:disabled, switch:disabled slider, scale:disabled slider {
+  background-color: @cass_panel_bg;
+  color: @cass_insensitive;
+}

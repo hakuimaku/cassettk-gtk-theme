@@ -1,0 +1,30 @@
+# Build, test, and log outputs
+/build/
+/dist/
+/.test-output/
+*.log
+
+# Compiled test probes
+*.so
+*.o
+
+# Python environments and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+.pytest_cache/
+
+# Local agent settings and credentials
+/.agents/
+/.codex/
+/.aws/
+.env
+.env.*
+!.env.example
+
+# Editor and operating-system temporary files
+*.swp
+*.swo
+*~
+.DS_Store

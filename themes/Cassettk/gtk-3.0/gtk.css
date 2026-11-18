@@ -1,0 +1,440 @@
+@import url("../shared/colors.css");
+@import url("../shared/widgets.css");
+
+/* Native GTK3 nodes, including menus, treeview, and Thunar. */
+:disabled { -gtk-icon-effect: dim; }
+
+decoration {
+  border-radius: 0px;
+  background-color: @cass_window_bg;
+}
+
+.view, iconview, treeview {
+  background-color: @cass_inset_bg;
+  color: @cass_text;
+}
+
+treeview {
+  -GtkTreeView-vertical-separator: 6;
+  -GtkTreeView-horizontal-separator: 6;
+}
+
+treeview header button {
+  border-radius: 0px;
+  background-color: @cass_button_bg;
+  color: @cass_text;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
+}
+
+.view.cell, .view row { background-color: transparent; }
+
+.view.cell:hover, .view:hover, iconview:hover {
+  background-color: @cass_panel_bg;
+  border-radius: 0px;
+}
+
+.view:selected, .view.cell:selected, .view row:selected, iconview:selected {
+  background-color: @cass_select_bg;
+  color: @cass_select_fg;
+  border-radius: 0px;
+}
+
+.view:selected:backdrop, .view.cell:selected:backdrop, iconview:selected:backdrop {
+  background-color: @cass_select_backdrop;
+  color: @cass_text;
+}
+
+iconview:focus { background-color: @cass_inset_bg; }
+.view.cell:selected:focus, iconview:selected:focus {
+  background-color: @cass_select_bg;
+  color: @cass_select_fg;
+}
+
+treeview.view:hover { background-color: @cass_inset_bg; }
+treeview.view:selected:hover {
+  background-color: @cass_select_bg;
+  color: @cass_select_fg;
+}
+
+.view entry {
+  background-color: @cass_inset_bg;
+  color: @cass_text;
+  border-radius: 0px;
+}
+
+toolbar, menubar, statusbar {
+  padding: 4px 6px;
+  background-color: @cass_window_bg;
+  color: @cass_text;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
+}
+
+toolbar { padding: 4px 6px; }
+
+toolbar button,
+toolbar button.flat {
+  background-color: @cass_button_bg;
+  color: @cass_text;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
+}
+
+toolbar button:hover,
+toolbar button.flat:hover {
+  background-color: @cass_button_active_bg;
+}
+
+toolbar button:checked,
+toolbar button:active,
+toolbar button.flat:checked,
+toolbar button.flat:active {
+  background-color: @cass_button_active_bg;
+  border-top-color: @cass_border_dark;
+  border-left-color: @cass_border_dark;
+  border-right-color: @cass_border_light;
+  border-bottom-color: @cass_border_light;
+}
+
+toolbar button:disabled,
+toolbar button.flat:disabled {
+  background-color: @cass_panel_bg;
+  color: @cass_insensitive;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
+}
+
+menubar > menuitem {
+  padding: 3px 8px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
+}
+
+menubar > menuitem:hover {
+  background-color: @cass_select_bg;
+  color: @cass_select_fg;
+  border-top-color: @cass_border_dark;
+  border-left-color: @cass_border_dark;
+  border-right-color: @cass_border_light;
+  border-bottom-color: @cass_border_light;
+}
+
+statusbar {
+  padding: 3px 4px;
+  background-color: @cass_window_bg;
+  color: @cass_text;
+}
+statusbar frame { padding: 0px; }
+statusbar frame > border {
+  padding: 2px 8px;
+  background-color: @cass_inset_bg;
+  color: @cass_text;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_dark;
+  border-left-color: @cass_border_dark;
+  border-right-color: @cass_border_light;
+  border-bottom-color: @cass_border_light;
+}
+
+menu, .menu, popover {
+  padding: 4px;
+  border-radius: 0px;
+  background-color: @cass_panel_bg;
+  background-image: none;
+  opacity: 1;
+  color: @cass_text;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
+}
+
+menuitem, modelbutton {
+  min-height: 24px;
+  padding: 4px 8px;
+  border-radius: 0px;
+  background-color: transparent;
+}
+
+menu menuitem, popover modelbutton { padding: 6px 14px; }
+
+menuitem:hover, modelbutton:hover, modelbutton:focus {
+  background-color: @cass_select_bg;
+  color: @cass_select_fg;
+}
+
+menuitem:disabled { color: @cass_insensitive; }
+menu separator { margin: 4px 6px; }
+menu arrow { min-width: 16px; min-height: 16px; }
+
+menuitem arrow, combobox arrow, expander arrow, treeview expander {
+  min-width: 16px;
+  min-height: 16px;
+  -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+}
+
+menuitem arrow:dir(rtl) { -gtk-icon-transform: rotate(180deg); }
+combobox arrow, expander arrow:checked, treeview expander:checked {
+  -gtk-icon-transform: rotate(90deg);
+}
+
+combobox box.linked button { border-radius: 0px; }
+infobar { padding: 8px; background-color: @cass_panel_bg; color: @cass_text; }
+dialog .dialog-vbox { padding: 12px; }
+dialog .dialog-action-area { padding: 8px; }
+
+/* Thunar 4.20 support — Classic Win9x raised/inset bevel structure */
+window.thunar {
+  background-color: @cass_window_bg;
+  font-size: 0.9em;
+  border: 2px solid @cass_border_frame;
+}
+.thunar menubar {
+  padding: 3px 6px;
+  background-color: @cass_window_bg;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
+}
+.thunar toolbar {
+  padding: 4px 6px;
+  background-color: @cass_window_bg;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
+}
+.thunar menubar > menuitem { padding: 3px 8px; margin: 0px 2px; }
+.thunar toolbar button,
+.thunar toolbar button.flat {
+  padding: 4px 8px;
+  margin: 0px 2px;
+  background-color: @cass_button_bg;
+  color: @cass_text;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
+}
+.thunar toolbar button:hover,
+.thunar toolbar button.flat:hover {
+  background-color: @cass_button_active_bg;
+}
+.thunar toolbar button:active,
+.thunar toolbar button:checked,
+.thunar toolbar button.flat:active,
+.thunar toolbar button.flat:checked {
+  background-color: @cass_button_active_bg;
+  border-top-color: @cass_border_dark;
+  border-left-color: @cass_border_dark;
+  border-right-color: @cass_border_light;
+  border-bottom-color: @cass_border_light;
+}
+.thunar toolbar button:disabled,
+.thunar toolbar button.flat:disabled {
+  background-color: @cass_panel_bg;
+  color: @cass_insensitive;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
+}
+.thunar toolbar entry {
+  padding: 4px 8px;
+  margin: 0px 4px;
+  background-color: @cass_inset_bg;
+  color: @cass_text;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_dark;
+  border-left-color: @cass_border_dark;
+  border-right-color: @cass_border_light;
+  border-bottom-color: @cass_border_light;
+}
+.thunar .path-bar > button.location-button.toggle {
+  padding: 4px 10px;
+  margin: 0px 1px;
+  background-color: @cass_button_bg;
+  color: @cass_text;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
+}
+.thunar .path-bar > button.location-button.toggle:checked {
+  background-color: @cass_select_bg;
+  color: @cass_select_fg;
+  font-weight: bold;
+  border-top-color: @cass_border_dark;
+  border-left-color: @cass_border_dark;
+  border-right-color: @cass_border_light;
+  border-bottom-color: @cass_border_light;
+}
+.thunar .path-bar > button.location-button:not(.toggle) {
+  min-width: 16px;
+  padding: 4px 4px;
+  margin: 0px 1px;
+}
+
+.thunar paned {
+  background-color: @cass_window_bg;
+}
+
+.thunar .sidebar {
+  margin: 4px 2px 4px 4px;
+  padding: 2px;
+  background-color: @cass_panel_bg;
+  color: @cass_text;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_dark;
+  border-left-color: @cass_border_dark;
+  border-right-color: @cass_border_light;
+  border-bottom-color: @cass_border_light;
+}
+.thunar .sidebar treeview {
+  background-color: @cass_panel_bg;
+  color: @cass_text;
+}
+.thunar .sidebar scrollbar.vertical { background-color: @cass_inset_bg; }
+.thunar .sidebar treeview:hover { background-color: @cass_panel_bg; }
+.thunar .sidebar .cell { padding: 4px 6px; border-radius: 0px; }
+.thunar .sidebar .cell:hover { background-color: @cass_button_active_bg; color: @cass_text; }
+.thunar .sidebar .cell:selected,
+.thunar .sidebar .cell:selected:hover,
+.thunar .sidebar .cell:selected:focus,
+.thunar .sidebar treeview:selected,
+.thunar .sidebar treeview:selected:hover {
+  background-color: @cass_inset_bg;
+  color: @cass_text;
+  font-weight: bold;
+  box-shadow: inset 0 2px 0 0 @cass_border_dark, inset 0 -2px 0 0 @cass_border_light;
+}
+.thunar .sidebar .cell:selected:backdrop,
+.thunar .sidebar treeview:selected:backdrop {
+  background-color: @cass_button_active_bg;
+  color: @cass_text_muted;
+  box-shadow: inset 0 2px 0 0 @cass_border_dark, inset 0 -2px 0 0 @cass_border_light;
+}
+
+.thunar .standard-view {
+  margin: 4px 4px 4px 2px;
+  background-color: @cass_inset_bg;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_dark;
+  border-left-color: @cass_border_dark;
+  border-right-color: @cass_border_light;
+  border-bottom-color: @cass_border_light;
+}
+.thunar .standard-view .view { border-radius: 0px; }
+.thunar .standard-view .view.cell:hover:not(:selected) { background-color: @cass_panel_bg; }
+.thunar .standard-view .view:selected,
+.thunar .standard-view .view.cell:selected,
+.thunar .standard-view .view.cell:selected:focus,
+.thunar .standard-view treeview.view:selected,
+.thunar .standard-view treeview.view:selected:hover {
+  background-color: @cass_button_active_bg;
+  color: @cass_text;
+  box-shadow: inset 0 2px 0 0 @cass_border_dark, inset 0 -2px 0 0 @cass_border_light;
+}
+.thunar .standard-view .view:selected:backdrop,
+.thunar .standard-view .view.cell:selected:backdrop {
+  background-color: @cass_panel_bg;
+  color: @cass_text_muted;
+  box-shadow: inset 0 2px 0 0 @cass_border_dark, inset 0 -2px 0 0 @cass_border_light;
+}
+.thunar .standard-view widget.view {
+  background-color: transparent;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
+}
+.thunar .standard-view widget.view:hover {
+  background-color: @cass_view_hover;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
+}
+.thunar .standard-view widget.view:selected,
+.thunar .standard-view widget.view:selected:focus,
+.thunar .standard-view widget.view:selected:hover {
+  background-color: @cass_button_active_bg;
+  color: @cass_text;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_dark;
+  border-left-color: @cass_border_dark;
+  border-right-color: @cass_border_light;
+  border-bottom-color: @cass_border_light;
+}
+.thunar .standard-view widget.view:active,
+.thunar .standard-view widget.view:selected:backdrop {
+  background-color: @cass_panel_bg;
+  color: @cass_text_muted;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_dark;
+  border-left-color: @cass_border_dark;
+  border-right-color: @cass_border_light;
+  border-bottom-color: @cass_border_light;
+}
+.thunar .standard-view widget.view.rubberband,
+.thunar .standard-view widget.view.rubberband:backdrop {
+  background-color: alpha(@cass_select_bg, 0.22);
+  border: 1px solid @cass_select_bg;
+}
+
+.thunar statusbar {
+  padding: 3px 4px;
+  background-color: @cass_window_bg;
+  color: @cass_text;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
+}
+.thunar statusbar frame > border {
+  padding: 2px 8px;
+  background-color: @cass_inset_bg;
+  color: @cass_text;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_dark;
+  border-left-color: @cass_border_dark;
+  border-right-color: @cass_border_light;
+  border-bottom-color: @cass_border_light;
+}
+.thunar notebook > header > tabs > tab button { background-color: transparent; color: inherit; border-color: transparent; }
+.thunar notebook > header > tabs > tab button:hover { background-color: @cass_button_bg; color: @cass_text; }

@@ -1,0 +1,179 @@
+@import url("../shared/colors.css");
+@import url("../shared/widgets.css");
+
+/* Libadwaita named color overrides (level b: color-only). */
+@define-color accent_bg_color @cass_select_bg;
+@define-color accent_fg_color @cass_select_fg;
+@define-color accent_color @cass_select_bg;
+
+@define-color destructive_bg_color @cass_urgent_bg;
+@define-color destructive_fg_color @cass_urgent_fg;
+@define-color destructive_color @error_color;
+
+@define-color success_bg_color @cass_panel_bg;
+@define-color success_fg_color @cass_text;
+@define-color warning_bg_color @cass_panel_bg;
+@define-color warning_fg_color @cass_text;
+@define-color error_bg_color @cass_urgent_bg;
+@define-color error_fg_color @cass_urgent_fg;
+
+@define-color window_bg_color @cass_window_bg;
+@define-color window_fg_color @cass_text;
+
+@define-color view_bg_color @cass_inset_bg;
+@define-color view_fg_color @cass_text;
+
+@define-color headerbar_bg_color @cass_title_bg;
+@define-color headerbar_fg_color @cass_title_fg;
+@define-color headerbar_border_color @cass_border_dark;
+@define-color headerbar_backdrop_color @cass_panel_bg;
+@define-color headerbar_shade_color rgba(0, 0, 0, 0.36);
+@define-color headerbar_darker_shade_color rgba(0, 0, 0, 0.6);
+
+@define-color sidebar_bg_color @cass_panel_bg;
+@define-color sidebar_fg_color @cass_text;
+@define-color sidebar_backdrop_color @cass_panel_bg;
+@define-color sidebar_shade_color rgba(0, 0, 0, 0.25);
+@define-color sidebar_border_color @cass_border_dark;
+
+@define-color secondary_sidebar_bg_color @cass_panel_bg;
+@define-color secondary_sidebar_fg_color @cass_text;
+@define-color secondary_sidebar_backdrop_color @cass_panel_bg;
+@define-color secondary_sidebar_shade_color rgba(0, 0, 0, 0.25);
+@define-color secondary_sidebar_border_color @cass_border_dark;
+
+@define-color card_bg_color @cass_panel_bg;
+@define-color card_fg_color @cass_text;
+@define-color card_shade_color rgba(0, 0, 0, 0.36);
+
+@define-color dialog_bg_color @cass_window_bg;
+@define-color dialog_fg_color @cass_text;
+
+@define-color popover_bg_color @cass_panel_bg;
+@define-color popover_fg_color @cass_text;
+@define-color popover_shade_color rgba(0, 0, 0, 0.25);
+
+@define-color thumbnail_bg_color @cass_inset_bg;
+@define-color thumbnail_fg_color @cass_text;
+
+@define-color shade_color rgba(0, 0, 0, 0.36);
+@define-color scrollbar_outline_color rgba(0, 0, 0, 0.5);
+
+/* GTK4 has text subnodes, popover contents and virtualized list/grid rows. */
+window { border-radius: 0px; }
+window > contents { background-color: @cass_window_bg; color: @cass_text; }
+entry > text, spinbutton > text { background-color: transparent; color: inherit; }
+entry > text > selection, textview text selection {
+  background-color: @cass_select_bg;
+  color: @cass_select_fg;
+}
+
+listview, gridview, columnview, .view {
+  background-color: @cass_inset_bg;
+  color: @cass_text;
+}
+listview > row, gridview > child { padding: 4px 8px; border-radius: 0px; }
+listview > row:hover, gridview > child:hover { background-color: @cass_panel_bg; }
+listview > row:focus, gridview > child:focus {
+  outline-style: dotted;
+  outline-width: 1px;
+  outline-offset: -2px;
+  outline-color: @cass_text;
+}
+listview > row:selected, gridview > child:selected {
+  background-color: @cass_select_bg;
+  color: @cass_select_fg;
+}
+listview > row:selected:focus, gridview > child:selected:focus {
+  background-color: @cass_select_bg;
+  color: @cass_select_fg;
+}
+listview > row:selected:backdrop, gridview > child:selected:backdrop {
+  background-color: @cass_select_backdrop;
+  color: @cass_text;
+}
+
+columnview header button {
+  border-radius: 0px;
+  background-color: @cass_button_bg;
+  color: @cass_text;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
+}
+columnview header button:active {
+  background-color: @cass_button_active_bg;
+  border-top-color: @cass_border_dark;
+  border-left-color: @cass_border_dark;
+  border-right-color: @cass_border_light;
+  border-bottom-color: @cass_border_light;
+}
+
+popover { background-color: transparent; }
+popover > contents {
+  padding: 4px;
+  border-radius: 0px;
+  background-color: @cass_panel_bg;
+  color: @cass_text;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
+}
+popover > arrow { background-color: @cass_panel_bg; }
+popover modelbutton {
+  min-height: 24px;
+  padding: 6px 14px;
+  border-radius: 0px;
+  background-color: transparent;
+  border: none;
+}
+popover modelbutton:hover, popover modelbutton:focus, popover modelbutton:selected {
+  background-color: @cass_select_bg;
+  color: @cass_select_fg;
+}
+popover separator { margin: 4px 6px; }
+
+menubar {
+  padding: 4px 6px;
+  background-color: @cass_panel_bg;
+  color: @cass_text;
+}
+menubar > item {
+  padding: 4px 8px;
+  border-radius: 0px;
+}
+menubar > item:hover, menubar > item:selected {
+  background-color: @cass_select_bg;
+  color: @cass_select_fg;
+}
+
+dropdown > button, menubutton > button { border-radius: 0px; }
+dropdown arrow, expander-widget > box > title > expander {
+  min-width: 16px;
+  min-height: 16px;
+  -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+}
+treeexpander > expander {
+  min-width: 16px;
+  min-height: 16px;
+  -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+}
+treeexpander > expander:checked { -gtk-icon-transform: rotate(90deg); }
+
+dialog box.dialog-vbox { padding: 12px; }
+dialog box.dialog-action-area { padding: 8px; }
+
+frame {
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_dark;
+  border-left-color: @cass_border_dark;
+  border-right-color: @cass_border_light;
+  border-bottom-color: @cass_border_light;
+}
