@@ -206,6 +206,11 @@ headerbar {
   border-bottom: 2px solid @cass_border_dark;
 }
 
+headerbar:backdrop {
+  background-color: @cass_title_backdrop_bg;
+  color: @cass_title_backdrop_fg;
+}
+
 headerbar button,
 headerbar button.titlebutton {
   min-width: 20px;
@@ -233,7 +238,14 @@ headerbar button.titlebutton:active {
 
 .title {
   font-weight: bold;
+}
+
+headerbar .title {
   color: @cass_title_fg;
+}
+
+headerbar:backdrop .title {
+  color: @cass_title_backdrop_fg;
 }
 
 .subtitle, .dim-label {
@@ -356,7 +368,7 @@ scrollbar slider {
 
 scrollbar.vertical slider { min-height: 28px; }
 scrollbar.horizontal slider { min-width: 28px; }
-scrollbar slider:active { background-color: @cass_title_bg; }
+scrollbar slider:active { background-color: @cass_button_active_bg; }
 scrollbar button { min-width: 0px; min-height: 0px; padding: 0px; border: none; background: none; }
 
 /* Progressbar, Scale, Levelbar */

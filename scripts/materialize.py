@@ -6,7 +6,7 @@ import shutil
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "theme-src"
-VARIANTS = {"dark": "Cassettk"}
+VARIANTS = {"light": "Cassettk"}
 REQUIRED = (
     "index.theme", "shared/colors.css", "shared/widgets.css",
     "gtk-3.0/gtk.css", "gtk-3.0/gtk-dark.css", "gtk-3.0/settings.ini",
@@ -30,7 +30,7 @@ def validate(theme):
 
 
 def materialize(destination):
-    """Generate Cassettk theme from theme-src and palettes/dark.css."""
+    """Generate Cassettk theme from theme-src and palettes/light.css."""
     if not SOURCE.is_dir():
         raise ValueError(f"Missing theme source: {SOURCE}")
     if SOURCE.is_symlink() or any(p.is_symlink() for p in SOURCE.rglob("*")):

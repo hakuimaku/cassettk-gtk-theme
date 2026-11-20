@@ -26,38 +26,38 @@
 @define-color headerbar_bg_color @cass_title_bg;
 @define-color headerbar_fg_color @cass_title_fg;
 @define-color headerbar_border_color @cass_border_dark;
-@define-color headerbar_backdrop_color @cass_panel_bg;
-@define-color headerbar_shade_color rgba(0, 0, 0, 0.36);
-@define-color headerbar_darker_shade_color rgba(0, 0, 0, 0.6);
+@define-color headerbar_backdrop_color @cass_title_backdrop_bg;
+@define-color headerbar_shade_color rgba(0, 0, 0, 0.12);
+@define-color headerbar_darker_shade_color rgba(0, 0, 0, 0.20);
 
 @define-color sidebar_bg_color @cass_panel_bg;
 @define-color sidebar_fg_color @cass_text;
 @define-color sidebar_backdrop_color @cass_panel_bg;
-@define-color sidebar_shade_color rgba(0, 0, 0, 0.25);
+@define-color sidebar_shade_color rgba(0, 0, 0, 0.08);
 @define-color sidebar_border_color @cass_border_dark;
 
 @define-color secondary_sidebar_bg_color @cass_panel_bg;
 @define-color secondary_sidebar_fg_color @cass_text;
 @define-color secondary_sidebar_backdrop_color @cass_panel_bg;
-@define-color secondary_sidebar_shade_color rgba(0, 0, 0, 0.25);
+@define-color secondary_sidebar_shade_color rgba(0, 0, 0, 0.08);
 @define-color secondary_sidebar_border_color @cass_border_dark;
 
 @define-color card_bg_color @cass_panel_bg;
 @define-color card_fg_color @cass_text;
-@define-color card_shade_color rgba(0, 0, 0, 0.36);
+@define-color card_shade_color rgba(0, 0, 0, 0.12);
 
 @define-color dialog_bg_color @cass_window_bg;
 @define-color dialog_fg_color @cass_text;
 
 @define-color popover_bg_color @cass_panel_bg;
 @define-color popover_fg_color @cass_text;
-@define-color popover_shade_color rgba(0, 0, 0, 0.25);
+@define-color popover_shade_color rgba(0, 0, 0, 0.12);
 
 @define-color thumbnail_bg_color @cass_inset_bg;
 @define-color thumbnail_fg_color @cass_text;
 
-@define-color shade_color rgba(0, 0, 0, 0.36);
-@define-color scrollbar_outline_color rgba(0, 0, 0, 0.5);
+@define-color shade_color rgba(0, 0, 0, 0.12);
+@define-color scrollbar_outline_color rgba(0, 0, 0, 0.25);
 
 /* GTK4 has text subnodes, popover contents and virtualized list/grid rows. */
 window { border-radius: 0px; }
@@ -143,6 +143,18 @@ menubar {
   padding: 4px 6px;
   background-color: @cass_panel_bg;
   color: @cass_text;
+}
+
+toolbar {
+  padding: 4px 6px;
+  background-color: @cass_toolbar_bg;
+  color: @cass_text;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: @cass_border_light;
+  border-left-color: @cass_border_light;
+  border-right-color: @cass_border_dark;
+  border-bottom-color: @cass_border_dark;
 }
 menubar > item {
   padding: 4px 8px;

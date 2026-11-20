@@ -79,7 +79,10 @@ toolbar, menubar, statusbar {
   border-bottom-color: @cass_border_dark;
 }
 
-toolbar { padding: 4px 6px; }
+toolbar {
+  padding: 4px 6px;
+  background-color: @cass_toolbar_bg;
+}
 
 toolbar button,
 toolbar button.flat {
@@ -220,7 +223,7 @@ window.thunar {
 }
 .thunar toolbar {
   padding: 4px 6px;
-  background-color: @cass_window_bg;
+  background-color: @cass_toolbar_bg;
   border-width: 2px;
   border-style: solid;
   border-top-color: @cass_border_light;

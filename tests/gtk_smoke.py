@@ -12,7 +12,7 @@ from gi.repository import Gio, GLib, Gtk
 
 ROOT = Path(__file__).resolve().parents[1]
 theme_name = os.environ.get("GTK_THEME", "Cassettk").split(":")[0]
-base = 0x4A / 255
+base = 0xE8 / 255
 errors = []
 providers = []
 
@@ -252,13 +252,13 @@ def render_gtk4_png(window, paintable, path):
 
     im = Image.open(path).convert("RGB")
     header_px = im.getpixel((10, 10))
-    assert header_px == (0x5E, 0x5E, 0x5E), f"Expected headerbar #5e5e5e, got {header_px}"
+    assert header_px == (0x1B, 0x3B, 0x7A), f"Expected headerbar #1b3b7a, got {header_px}"
     if mode == "4.0":
         bg_px = im.getpixel((6, 60))
-        assert bg_px == (0x4A, 0x4A, 0x4A), f"Expected window_bg #4a4a4a, got {bg_px}"
+        assert bg_px == (0xE8, 0xE8, 0xE8), f"Expected window_bg #e8e8e8, got {bg_px}"
     else:
         bg_px = im.getpixel((6, 80))
-        assert bg_px == (0x4A, 0x4A, 0x4A), f"Expected Adw window_bg #4a4a4a, got {bg_px}"
+        assert bg_px == (0xE8, 0xE8, 0xE8), f"Expected Adw window_bg #e8e8e8, got {bg_px}"
 
 
 if mode == "3.0":

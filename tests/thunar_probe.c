@@ -98,7 +98,7 @@ static void select_file(void) {
   gtk_widget_grab_focus(view);
 }
 
-/* File hover must brighten the canvas without replacing a selected row's paint. */
+/* File hover must tint the canvas visibly without replacing a selected row's paint. */
 static void check_file_hover(GtkWidget *view) {
   g_assert_nonnull(view);
   GtkStyleContext *context = gtk_widget_get_style_context(view); /* Actual Exo drawing context. */
@@ -111,7 +111,7 @@ static void check_file_hover(GtkWidget *view) {
   double level = hover.red * hover.alpha + base.red * (1.0 - hover.alpha); /* Visible neutral hover. */
   g_print("HOVER %s base=%.4f composite=%.4f tint=%.4f alpha=%.4f\n",
           G_OBJECT_TYPE_NAME(view), base.red, level, hover.red, hover.alpha);
-  g_assert_cmpfloat(level, >, base.red + 0.001);
+  g_assert_cmpfloat(level, <, base.red - 0.001);
   gtk_style_context_set_state(context, GTK_STATE_FLAG_SELECTED);
   gtk_style_context_get_background_color(context, GTK_STATE_FLAG_SELECTED, &selected);
   gtk_style_context_set_state(context, GTK_STATE_FLAG_SELECTED | GTK_STATE_FLAG_PRELIGHT);
@@ -161,7 +161,7 @@ static gboolean exercise(gpointer unused) {
   g_free(desktop_font);
   GdkRGBA bg;
   gtk_style_context_get_background_color(gtk_widget_get_style_context(main_window), GTK_STATE_FLAG_NORMAL, &bg);
-  g_assert_cmpfloat_with_epsilon(bg.red, 74.0 / 255, 0.001);
+  g_assert_cmpfloat_with_epsilon(bg.red, 232.0 / 255, 0.001);
   g_assert_cmpfloat_with_epsilon(bg.green, bg.red, 0.001);
   g_assert_cmpfloat_with_epsilon(bg.blue, bg.red, 0.001);
   action("<Actions>/ThunarWindow/view-as-icons");

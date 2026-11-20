@@ -26,19 +26,21 @@ def contrast(a, b):
 class PaletteTests(unittest.TestCase):
     def test_semantic_contrast(self):
         colors = dict(re.findall(r'@define-color (\w+) (#[0-9a-fA-F]{6});',
-                                 (SOURCE / "palettes/dark.css").read_text()))
+                                 (SOURCE / "palettes/light.css").read_text()))
         self.assertGreaterEqual(contrast(colors["cass_text"], colors["cass_window_bg"]), 4.5)
         self.assertGreaterEqual(contrast(colors["cass_text"], colors["cass_inset_bg"]), 4.5)
         self.assertGreaterEqual(contrast(colors["cass_text"], colors["cass_button_bg"]), 4.5)
+        self.assertGreaterEqual(contrast(colors["cass_text"], colors["cass_toolbar_bg"]), 4.5)
         self.assertGreaterEqual(contrast(colors["cass_select_fg"], colors["cass_select_bg"]), 4.5)
         self.assertGreaterEqual(contrast(colors["cass_title_fg"], colors["cass_title_bg"]), 4.5)
+        self.assertGreaterEqual(contrast(colors["cass_title_backdrop_fg"], colors["cass_title_backdrop_bg"]), 4.5)
         self.assertGreaterEqual(contrast(colors["cass_tooltip_fg"], colors["cass_tooltip_bg"]), 4.5)
         self.assertGreaterEqual(contrast(colors["cass_urgent_fg"], colors["cass_urgent_bg"]), 4.5)
 
     @unittest.skipUnless(shutil.which("rsvg-convert"), "indicator renders require librsvg and Pillow")
     def test_indicator_renders(self):
         from PIL import Image
-        expected = (230, 230, 230)
+        expected = (20, 20, 20)
         for asset in ("check", "minus", "dot"):
             path = ROOT / "themes/Cassettk/assets" / f"{asset}.svg"
             png = subprocess.run(["rsvg-convert", str(path)], check=True, capture_output=True).stdout
